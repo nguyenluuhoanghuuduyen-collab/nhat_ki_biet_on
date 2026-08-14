@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhật Ký Biết Ơn 🌅 | THPT Huỳnh Văn Nghệ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Mulish:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#5B8DEF;        --sky-soft:#E3EEFF;
+  --rose:#EF5F86;       --rose-soft:#FFE3EC;
+  --gold:#F2A93B;       --gold-soft:#FFF1D2;
+  --sunrise:#FF7E54;    --sunrise-soft:#FFE5DA;
+  --ink:#233156;        --ink-soft:#8891AC;
+  --ink-mid:#5A6688;
+  --cream:#FBF8F2;
+  --card:#FFFFFF;
+  --line:#ECE6DA;
+  --shadow: 0 10px 30px -12px rgba(35,49,86,.18);
+  --radius: 22px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:'Mulish', sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1100px 500px at 15% -10%, #EAF2FF 0%, transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, #FFF0E4 0%, transparent 55%),
+    var(--cream);
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.display{ font-family:'Be Vietnam Pro', sans-serif; }
+::selection{ background: var(--sunrise-soft); }
+
+/* ---------- floating decoration ---------- */
+.bg-blob{position:fixed; border-radius:50%; filter:blur(60px); opacity:.55; z-index:0; pointer-events:none;}
+.blob-1{width:420px;height:420px; top:-140px; left:-140px; background:radial-gradient(circle,var(--sky-soft),transparent 70%);}
+.blob-2{width:380px;height:380px; top:20%; right:-160px; background:radial-gradient(circle,var(--gold-soft),transparent 70%);}
+.blob-3{width:340px;height:340px; bottom:-120px; left:30%; background:radial-gradient(circle,var(--rose-soft),transparent 70%);}
+.sparkle{position:fixed; z-index:0; pointer-events:none; opacity:.6; animation:drift 9s ease-in-out infinite;}
+@keyframes drift{ 0%,100%{transform:translateY(0) rotate(0deg);} 50%{transform:translateY(-22px) rotate(12deg);} }
+
+.wrap{max-width:1140px; margin:0 auto; padding:0 22px; position:relative; z-index:1;}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:40;
+  backdrop-filter:blur(14px);
+  background:rgba(251,248,242,.82);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{max-width:1140px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px;}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.15rem;}
+.brand-badge{
+  width:40px;height:40px;border-radius:14px; display:grid; place-items:center; font-size:1.25rem;
+  background:linear-gradient(135deg,var(--sunrise),var(--rose)); color:#fff; box-shadow:var(--shadow);
+}
+.top-actions{display:flex; align-items:center; gap:10px;}
+.streak-pill{
+  display:flex; align-items:center; gap:6px; background:linear-gradient(135deg,var(--gold-soft),#fff);
+  border:1px solid #F3DDA3; padding:8px 14px; border-radius:999px; font-weight:700; font-size:.92rem; color:#8A5A00;
+}
+.icon-btn{
+  width:42px;height:42px; border-radius:14px; border:1px solid var(--line); background:#fff;
+  display:grid; place-items:center; cursor:pointer; font-size:1.15rem; transition:.2s; box-shadow:0 2px 6px rgba(35,49,86,.06);
+}
+.icon-btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow); }
+
+/* ---------- hero ---------- */
+.hero{ padding:56px 0 30px; text-align:center; position:relative; }
+.spiral{
+  position:absolute; top:-40px; left:50%; transform:translateX(-50%);
+  width:520px; height:520px; z-index:-1; opacity:.9;
+  background:conic-gradient(from 200deg, var(--sky-soft), var(--rose-soft), var(--gold-soft), var(--sunrise-soft), var(--sky-soft));
+  border-radius:50%; filter:blur(2px);
+  -webkit-mask:radial-gradient(circle, transparent 56%, black 58%, black 62%, transparent 64%);
+          mask:radial-gradient(circle, transparent 56%, black 58%, black 62%, transparent 64%);
+  animation:spin 40s linear infinite;
+}
+@keyframes spin{ to{ transform:translateX(-50%) rotate(360deg);} }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line);
+  padding:7px 16px; border-radius:999px; font-weight:700; font-size:.82rem; color:var(--ink-mid);
+  box-shadow:var(--shadow); margin-bottom:18px;
+}
+.hero h1{ font-size:clamp(2.1rem, 5vw, 3.3rem); margin:0 0 12px; font-weight:800; letter-spacing:-.5px;}
+.hero h1 span{
+  background:linear-gradient(100deg,var(--sky),var(--rose) 45%,var(--gold) 75%,var(--sunrise));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero p.lead{ max-width:560px; margin:0 auto 22px; color:var(--ink-mid); font-size:1.05rem; line-height:1.6;}
+.quote-card{
+  max-width:480px; margin:0 auto; background:#fff; border:1px solid var(--line); border-radius:18px;
+  padding:14px 20px; box-shadow:var(--shadow); font-style:italic; color:var(--ink-mid); font-size:.95rem;
+}
+
+/* ---------- 3K banner ---------- */
+.k3{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:30px 0 46px;}
+.k3 .chip{
+  display:flex; align-items:center; gap:10px; padding:12px 18px; border-radius:16px; font-weight:700; font-size:.92rem;
+  background:#fff; border:1px solid var(--line); box-shadow:0 4px 14px rgba(35,49,86,.06);
+}
+.k3 .chip b{ width:30px;height:30px;border-radius:10px; display:grid; place-items:center; color:#fff; font-size:.85rem; flex:none;}
+.k3 .chip:nth-child(1) b{background:var(--sky);}
+.k3 .chip:nth-child(2) b{background:var(--rose);}
+.k3 .chip:nth-child(3) b{background:var(--gold);}
+
+/* ---------- layout ---------- */
+.grid{ display:grid; grid-template-columns: 1.6fr 1fr; gap:26px; align-items:start; padding-bottom:70px;}
+@media (max-width:920px){ .grid{ grid-template-columns:1fr; } }
+
+.card{ background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); }
+.pad{ padding:26px; }
+
+.today-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; flex-wrap:wrap; gap:10px;}
+.today-row h2{ margin:0; font-size:1.35rem; }
+.today-date{ color:var(--ink-mid); font-weight:600; font-size:.9rem; text-transform:capitalize;}
+
+.reminder-banner{
+  display:flex; align-items:center; gap:12px; background:linear-gradient(90deg,var(--sunrise-soft),var(--gold-soft));
+  border:1px solid #FBD9BC; border-radius:16px; padding:12px 16px; margin-bottom:20px; font-size:.9rem; font-weight:600; color:#8A4B1F;
+}
+.reminder-banner button{ margin-left:auto; background:none; border:none; font-size:1.1rem; cursor:pointer; color:#8A4B1F; }
+
+/* step cards */
+.steps{ display:flex; flex-direction:column; gap:16px; }
+.step{
+  border-radius:18px; padding:20px; border:1px solid var(--line); position:relative; overflow:hidden;
+  transition:.25s;
+}
+.step:hover{ transform:translateY(-2px); }
+.step .glow{ position:absolute; inset:0; opacity:.5; z-index:0; }
+.step > *{ position:relative; z-index:1; }
+.step-head{ display:flex; align-items:center; gap:12px; margin-bottom:10px;}
+.step-num{
+  width:38px;height:38px;border-radius:12px; display:grid; place-items:center; font-size:1.2rem; color:#fff; flex:none;
+  box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+.step-title{ font-weight:800; font-size:1.02rem; }
+.step-sub{ font-size:.84rem; color:var(--ink-mid); margin-top:1px;}
+.step textarea{
+  width:100%; border:1.5px solid var(--line); border-radius:14px; padding:12px 14px; font-family:'Mulish',sans-serif;
+  font-size:.95rem; resize:vertical; min-height:78px; background:rgba(255,255,255,.7); color:var(--ink);
+}
+.step textarea:focus{ outline:none; border-color:currentColor; background:#fff; }
+.step-foot{ display:flex; justify-content:space-between; margin-top:6px; font-size:.75rem; color:#9AA3BD;}
+
+.step.s1{ background:var(--sky-soft); color:var(--sky); } .step.s1 .step-num{background:var(--sky);}
+.step.s2{ background:var(--rose-soft); color:var(--rose); } .step.s2 .step-num{background:var(--rose);}
+.step.s3{ background:var(--gold-soft); color:#B9791A; } .step.s3 .step-num{background:var(--gold);}
+.step.s4{ background:var(--sunrise-soft); color:var(--sunrise); } .step.s4 .step-num{background:var(--sunrise);}
+.step .step-title, .step .step-sub{ color:var(--ink); }
+
+.action-bar{ display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.btn{
+  border:none; border-radius:14px; padding:13px 20px; font-weight:700; font-size:.92rem; cursor:pointer;
+  display:inline-flex; align-items:center; gap:8px; transition:.2s; font-family:'Mulish',sans-serif;
+}
+.btn:active{ transform:scale(.97); }
+.btn-primary{ background:linear-gradient(120deg,var(--sunrise),var(--rose)); color:#fff; box-shadow:0 10px 20px -8px rgba(239,95,134,.55);}
+.btn-primary:hover{ filter:brightness(1.05); }
+.btn-ghost{ background:#fff; color:var(--ink); border:1.5px solid var(--line); }
+.btn-ghost:hover{ border-color:var(--sky); color:var(--sky); }
+.btn-ai{ background:linear-gradient(120deg,#6C7DF0,#8E6CF0); color:#fff; box-shadow:0 10px 20px -8px rgba(108,125,240,.5);}
+.btn:disabled{ opacity:.55; cursor:not-allowed; }
+
+/* advisor */
+.advisor{ margin-top:22px; border-radius:18px; padding:20px; background:linear-gradient(135deg,#F4F1FF,#FFF); border:1px solid #E4DEFF; display:none;}
+.advisor.show{ display:block; animation:fadeUp .4s ease; }
+@keyframes fadeUp{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+.advisor-head{ display:flex; align-items:center; gap:12px; margin-bottom:10px;}
+.advisor-avatar{ width:42px;height:42px;border-radius:50%; background:linear-gradient(135deg,#6C7DF0,#8E6CF0); display:grid; place-items:center; color:#fff; font-size:1.2rem;}
+.advisor-name{ font-weight:800; font-size:.96rem; }
+.advisor-tag{ font-size:.74rem; color:#8A85B8; }
+.advisor-body{ font-size:.94rem; line-height:1.7; color:var(--ink); white-space:pre-wrap;}
+.advisor-disclaimer{ margin-top:10px; font-size:.74rem; color:#9AA3BD; }
+.loading-dots span{ display:inline-block; width:6px;height:6px;border-radius:50%; background:#8E6CF0; margin-right:4px; animation:bounce 1.1s infinite; }
+.loading-dots span:nth-child(2){animation-delay:.15s;} .loading-dots span:nth-child(3){animation-delay:.3s;}
+@keyframes bounce{ 0%,80%,100%{transform:translateY(0); opacity:.5;} 40%{transform:translateY(-5px); opacity:1;} }
+
+/* sidebar */
+.side-card{ margin-bottom:20px; }
+.side-title{ display:flex; align-items:center; gap:8px; font-weight:800; font-size:.98rem; margin-bottom:14px; }
+.streak-box{ display:flex; align-items:center; gap:16px; }
+.flame{ font-size:2.4rem; }
+.streak-num{ font-size:1.9rem; font-weight:800; line-height:1;}
+.streak-label{ font-size:.8rem; color:var(--ink-mid); }
+.heatmap{ display:grid; grid-template-columns:repeat(7,1fr); gap:6px; margin-top:16px;}
+.heatmap div{ aspect-ratio:1; border-radius:6px; background:#F1EEE6; }
+.heatmap div.on{ background:linear-gradient(135deg,var(--sunrise),var(--rose)); }
+.heatmap div.today{ box-shadow:0 0 0 2px var(--sky) inset; }
+
+.k3-mini{ display:flex; flex-direction:column; gap:8px; }
+.k3-mini div{ font-size:.85rem; display:flex; gap:8px; align-items:flex-start; color:var(--ink-mid);}
+
+.reminder-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
+.switch{ position:relative; width:46px;height:26px; }
+.switch input{ opacity:0; width:0;height:0; }
+.slider{ position:absolute; inset:0; background:#DDD6C6; border-radius:999px; cursor:pointer; transition:.2s;}
+.slider:before{ content:""; position:absolute; width:20px;height:20px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s; box-shadow:0 1px 3px rgba(0,0,0,.3);}
+input:checked + .slider{ background:linear-gradient(120deg,var(--sunrise),var(--rose)); }
+input:checked + .slider:before{ transform:translateX(20px); }
+.time-input{ width:100%; padding:10px 12px; border-radius:12px; border:1.5px solid var(--line); font-family:'Mulish',sans-serif; font-size:.92rem; margin-top:8px;}
+
+.history-item{ padding:12px 0; border-bottom:1px dashed var(--line); }
+.history-item:last-child{ border-bottom:none; }
+.history-date{ font-weight:700; font-size:.85rem; }
+.history-preview{ font-size:.82rem; color:var(--ink-mid); margin-top:3px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+.history-actions{ margin-top:6px; display:flex; gap:10px;}
+.history-actions button{ background:none; border:none; font-size:.76rem; font-weight:700; color:var(--sky); cursor:pointer; padding:0;}
+.empty-hint{ font-size:.85rem; color:#AEB4C7; text-align:center; padding:14px 0;}
+
+footer{ text-align:center; padding:30px 20px 50px; color:#A9B0C4; font-size:.8rem; line-height:1.7; }
+footer strong{ color:var(--ink-mid); }
+
+/* ---------- modal ---------- */
+.overlay{ position:fixed; inset:0; background:rgba(35,49,86,.45); backdrop-filter:blur(3px); display:none; align-items:center; justify-content:center; z-index:100; padding:18px;}
+.overlay.show{ display:flex; }
+.modal{ background:#fff; border-radius:24px; max-width:480px; width:100%; max-height:88vh; overflow-y:auto; padding:26px; box-shadow:0 30px 60px rgba(0,0,0,.25); animation:fadeUp .3s ease;}
+.modal-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;}
+.modal-head h3{ margin:0; font-size:1.2rem; }
+.modal-head button{ background:#F4F1EA; border:none; width:34px;height:34px; border-radius:10px; cursor:pointer; font-size:1rem;}
+.modal p.desc{ color:var(--ink-mid); font-size:.86rem; margin-top:2px; margin-bottom:20px; }
+.field-label{ font-weight:700; font-size:.85rem; margin-bottom:6px; display:block; }
+.key-row{ position:relative; margin-bottom:6px;}
+.key-row input{ width:100%; padding:12px 42px 12px 14px; border-radius:12px; border:1.5px solid var(--line); font-size:.9rem; font-family:monospace;}
+.key-row button{ position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:1rem;}
+.status-line{ display:flex; align-items:center; gap:7px; font-size:.8rem; color:var(--ink-mid); margin:8px 0 18px;}
+.dot{ width:8px;height:8px;border-radius:50%; background:#D9D2C2;}
+.dot.on{ background:#3FBF7F; }
+.help-toggle{ font-size:.82rem; font-weight:700; color:var(--sky); cursor:pointer; display:inline-flex; align-items:center; gap:5px; margin-bottom:14px; user-select:none;}
+.help-box{ display:none; background:var(--sky-soft); border-radius:14px; padding:14px 16px; font-size:.83rem; line-height:1.7; margin-bottom:18px; color:var(--ink);}
+.help-box.show{ display:block; }
+.help-box ol{ margin:0; padding-left:18px; }
+.help-box a{ color:var(--sky); font-weight:700; }
+select{ width:100%; padding:12px 14px; border-radius:12px; border:1.5px solid var(--line); font-family:'Mulish',sans-serif; font-size:.9rem; background:#fff; margin-bottom:6px;}
+.model-note{ font-size:.75rem; color:#AEB4C7; margin-bottom:18px; }
+.toast{
+  position:fixed; bottom:26px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--ink); color:#fff;
+  padding:12px 22px; border-radius:14px; font-size:.86rem; font-weight:600; box-shadow:var(--shadow); z-index:200;
+  opacity:0; pointer-events:none; transition:.3s;
+}
+.toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ---------- sound corner ---------- */
+.sound-grid{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
+.sound-btn{
+  display:flex; flex-direction:column; align-items:center; gap:6px; padding:14px 8px; border-radius:16px;
+  border:1.5px solid var(--line); background:#fff; cursor:pointer; transition:.2s; font-family:'Mulish',sans-serif;
+  font-size:.78rem; font-weight:700; color:var(--ink-mid);
+}
+.sound-btn .emo{ font-size:1.5rem; }
+.sound-btn:hover{ transform:translateY(-2px); border-color:var(--sky); }
+.sound-btn.active{ background:linear-gradient(135deg,var(--sky-soft),#fff); border-color:var(--sky); color:var(--sky); box-shadow:0 6px 16px -6px rgba(91,141,239,.4); }
+.eq{ display:flex; align-items:flex-end; gap:3px; height:26px; margin:0 auto 14px; width:fit-content; }
+.eq span{ width:4px; border-radius:3px; background:linear-gradient(180deg,var(--sunrise),var(--rose)); height:6px; opacity:.35; transition:height .15s; }
+.eq.playing span{ animation:eqbounce 1s ease-in-out infinite; opacity:1;}
+.eq.playing span:nth-child(1){animation-delay:0s;} .eq.playing span:nth-child(2){animation-delay:.15s;}
+.eq.playing span:nth-child(3){animation-delay:.3s;} .eq.playing span:nth-child(4){animation-delay:.1s;}
+.eq.playing span:nth-child(5){animation-delay:.25s;}
+@keyframes eqbounce{ 0%,100%{height:6px;} 50%{height:24px;} }
+.vol-row{ display:flex; align-items:center; gap:10px; }
+.vol-row input[type=range]{ flex:1; accent-color: var(--sky); }
+.sound-hint{ font-size:.74rem; color:#AEB4C7; margin-top:10px; text-align:center; }
+
+/* ---------- badges ---------- */
+.badge-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+.badge{
+  aspect-ratio:1; border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:2px; background:#F4F1EA; border:1.5px solid var(--line); cursor:default; position:relative; transition:.25s;
+}
+.badge .bi{ font-size:1.4rem; filter:grayscale(1) opacity(.35); transition:.25s; }
+.badge .bt{ font-size:.55rem; font-weight:700; color:#B8BECF; text-align:center; padding:0 3px; line-height:1.15;}
+.badge.unlocked{ background:linear-gradient(150deg,#fff,var(--gold-soft)); border-color:#F3DDA3; box-shadow:0 6px 16px -8px rgba(242,169,59,.5); }
+.badge.unlocked .bi{ filter:none; transform:scale(1.08); }
+.badge.unlocked .bt{ color:var(--ink); }
+.badge:hover .tip{ opacity:1; transform:translateY(-4px); pointer-events:auto; }
+.badge .tip{
+  position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(0); width:170px;
+  background:var(--ink); color:#fff; font-size:.72rem; line-height:1.5; padding:9px 11px; border-radius:10px;
+  opacity:0; transition:.2s; pointer-events:none; z-index:20; text-align:center; font-weight:600;
+}
+.badge .tip:after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:6px solid transparent; border-top-color:var(--ink); }
+.badge-progress{ font-size:.76rem; color:var(--ink-mid); text-align:center; margin-top:14px; }
+
+/* ---------- AI coach chat ---------- */
+.coach-fab{
+  position:fixed; right:26px; bottom:26px; z-index:60; width:62px;height:62px; border-radius:50%; border:none; cursor:pointer;
+  background:linear-gradient(135deg,#6C7DF0,#8E6CF0); color:#fff; font-size:1.6rem; box-shadow:0 14px 30px -10px rgba(108,125,240,.6);
+  display:grid; place-items:center; transition:.25s;
+}
+.coach-fab:hover{ transform:translateY(-3px) scale(1.04); }
+.coach-fab .ping{ position:absolute; top:6px; right:6px; width:12px;height:12px; border-radius:50%; background:var(--rose); border:2px solid #fff; display:none; }
+.coach-fab .ping.show{ display:block; animation:pingpulse 1.6s infinite; }
+@keyframes pingpulse{ 0%{box-shadow:0 0 0 0 rgba(239,95,134,.6);} 70%{box-shadow:0 0 0 8px rgba(239,95,134,0);} 100%{box-shadow:0 0 0 0 rgba(239,95,134,0);} }
+
+.chat-drawer{
+  position:fixed; right:26px; bottom:100px; z-index:60; width:370px; max-width:90vw; height:520px; max-height:72vh;
+  background:#fff; border-radius:22px; box-shadow:0 30px 60px rgba(0,0,0,.25); display:none; flex-direction:column; overflow:hidden;
+  border:1px solid var(--line);
+}
+.chat-drawer.show{ display:flex; animation:fadeUp .3s ease; }
+.chat-head{ background:linear-gradient(120deg,#6C7DF0,#8E6CF0); color:#fff; padding:16px 18px; display:flex; align-items:center; gap:10px;}
+.chat-head .ca{ width:38px;height:38px;border-radius:50%; background:rgba(255,255,255,.25); display:grid; place-items:center; font-size:1.1rem;}
+.chat-head b{ font-size:.95rem; display:block; }
+.chat-head small{ font-size:.72rem; opacity:.85; }
+.chat-head button{ margin-left:auto; background:rgba(255,255,255,.2); border:none; color:#fff; width:30px;height:30px; border-radius:9px; cursor:pointer; }
+.chat-body{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:#FAF9FF; }
+.msg{ max-width:82%; padding:10px 14px; border-radius:16px; font-size:.86rem; line-height:1.55; white-space:pre-wrap; }
+.msg.bot{ align-self:flex-start; background:#fff; border:1px solid #E8E4FA; border-bottom-left-radius:5px; color:var(--ink); }
+.msg.user{ align-self:flex-end; background:linear-gradient(120deg,var(--sunrise),var(--rose)); color:#fff; border-bottom-right-radius:5px; }
+.chat-foot{ padding:12px; border-top:1px solid var(--line); display:flex; gap:8px; background:#fff; }
+.chat-foot input{ flex:1; border:1.5px solid var(--line); border-radius:14px; padding:10px 14px; font-family:'Mulish',sans-serif; font-size:.86rem; }
+.chat-foot input:focus{ outline:none; border-color:#8E6CF0; }
+.chat-foot button{ width:42px;height:42px; border-radius:12px; border:none; background:linear-gradient(120deg,#6C7DF0,#8E6CF0); color:#fff; font-size:1.05rem; cursor:pointer; flex:none;}
+.chat-foot button:disabled{ opacity:.5; }
+.chat-suggests{ display:flex; gap:6px; flex-wrap:wrap; padding:0 14px 12px; }
+.chat-suggests button{ background:#F4F1EA; border:none; border-radius:999px; padding:6px 12px; font-size:.74rem; font-weight:700; color:var(--ink-mid); cursor:pointer; }
+.chat-suggests button:hover{ background:var(--sky-soft); color:var(--sky); }
+
+/* ---------- confetti + celebration ---------- */
+#confetti-canvas{ position:fixed; inset:0; pointer-events:none; z-index:150; }
+.celebrate-toast{
+  position:fixed; top:26px; left:50%; transform:translateX(-50%) translateY(-140%); z-index:160; background:#fff;
+  border-radius:20px; padding:16px 26px; box-shadow:0 20px 40px rgba(0,0,0,.2); display:flex; align-items:center; gap:14px;
+  transition:transform .5s cubic-bezier(.2,1.4,.4,1); border:1.5px solid var(--gold);
+}
+.celebrate-toast.show{ transform:translateX(-50%) translateY(0); }
+.celebrate-toast .ci{ font-size:2rem; }
+.celebrate-toast .ct b{ display:block; font-size:.94rem; }
+.celebrate-toast .ct span{ font-size:.78rem; color:var(--ink-mid); }
+
+/* ---------- floating petals ---------- */
+.petal{ position:fixed; z-index:0; pointer-events:none; font-size:16px; opacity:.55; animation:fall linear infinite; }
+@keyframes fall{ 0%{ transform:translateY(-40px) rotate(0deg); } 100%{ transform:translateY(105vh) rotate(360deg); } }
+
+/* time-of-day accents */
+body.tod-morning .spiral{ filter:hue-rotate(0deg) brightness(1.05); }
+body.tod-evening .spiral{ filter:hue-rotate(-14deg) brightness(.92); }
+body.tod-night{ background: radial-gradient(1100px 500px at 15% -10%, #E4E9FB 0%, transparent 60%), radial-gradient(900px 500px at 110% 10%, #FBE9E3 0%, transparent 55%), #F5F1E9; }
+
+/* ================= DARK MODE ================= */
+body.dark{
+  --ink:#EDEFF7; --ink-soft:#9AA3C4; --ink-mid:#B7BEDA;
+  --cream:#141928; --card:#1E2438; --line:#2C3554;
+  --sky-soft:#233252; --rose-soft:#3A2431; --gold-soft:#3A3021; --sunrise-soft:#3A281F;
+  background: radial-gradient(1100px 500px at 15% -10%, #1B2440 0%, transparent 60%),
+              radial-gradient(900px 500px at 110% 10%, #2A1F30 0%, transparent 55%), var(--cream);
+}
+body.dark .topbar{ background:rgba(20,25,40,.85); }
+body.dark .step textarea{ background:rgba(255,255,255,.05); color:var(--ink); border-color:#3A4368; }
+body.dark .step .step-title, body.dark .step .step-sub{ color:var(--ink); }
+body.dark .icon-btn, body.dark .btn-ghost{ background:#232A42; border-color:#333D5F; color:var(--ink); }
+body.dark .quote-card, body.dark .k3 .chip, body.dark select, body.dark .key-row input, body.dark .time-input{
+  background:#232A42; color:var(--ink); border-color:#333D5F;
+}
+body.dark .modal{ background:#1E2438; }
+body.dark .modal-head button{ background:#2C3554; color:var(--ink); }
+body.dark .help-box{ background:#233252; }
+body.dark .sound-btn{ background:#232A42; color:var(--ink-mid); border-color:#333D5F; }
+body.dark .badge{ background:#232A42; border-color:#333D5F; }
+body.dark .heatmap div{ background:#2C3554; }
+body.dark .chat-body{ background:#181E30; }
+body.dark .msg.bot{ background:#232A42; border-color:#333D5F; color:var(--ink); }
+body.dark .chat-foot{ background:#1E2438; border-color:#333D5F; }
+body.dark .chat-foot input{ background:#232A42; border-color:#333D5F; color:var(--ink); }
+body.dark .history-item{ border-color:#2C3554; }
+
+/* ================= mood picker ================= */
+.mood-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; background:#F4F1EA; border-radius:16px; padding:12px 16px; margin-bottom:18px; }
+body.dark .mood-row{ background:#232A42; }
+.mood-row .ml{ font-size:.85rem; font-weight:700; color:var(--ink-mid); }
+.mood-opts{ display:flex; gap:6px; }
+.mood-opt{ width:38px;height:38px; border-radius:50%; border:2px solid transparent; background:#fff; display:grid; place-items:center; font-size:1.2rem; cursor:pointer; transition:.15s; }
+body.dark .mood-opt{ background:#1E2438; }
+.mood-opt:hover{ transform:scale(1.1); }
+.mood-opt.sel{ border-color:var(--sunrise); background:var(--sunrise-soft); transform:scale(1.12); }
+
+/* ================= mood chart ================= */
+.mood-chart-wrap{ position:relative; height:110px; }
+.mood-chart-wrap svg{ width:100%; height:100%; overflow:visible; }
+.chart-empty{ font-size:.8rem; color:#AEB4C7; text-align:center; padding:20px 0; }
+
+/* ================= weekly recap ================= */
+.recap-trigger{ width:100%; text-align:center; }
+.recap-grid{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0; }
+.recap-stat{ background:linear-gradient(150deg,#fff,var(--sky-soft)); border:1px solid var(--line); border-radius:16px; padding:14px; text-align:center; }
+body.dark .recap-stat{ background:linear-gradient(150deg,#1E2438,#233252); }
+.recap-stat .rn{ font-size:1.5rem; font-weight:800; }
+.recap-stat .rl{ font-size:.72rem; color:var(--ink-mid); margin-top:2px; }
+.recap-line{ font-size:.86rem; color:var(--ink-mid); line-height:1.7; margin-top:6px;}
+
+/* ================= quick write 60s ================= */
+.timer-ring-wrap{ display:flex; flex-direction:column; align-items:center; gap:16px; }
+.timer-ring{ position:relative; width:130px; height:130px; }
+.timer-ring svg{ transform:rotate(-90deg); }
+.timer-ring circle{ fill:none; stroke-width:8; }
+.timer-ring .bgring{ stroke:var(--line); }
+.timer-ring .fgring{ stroke:var(--sunrise); stroke-linecap:round; transition:stroke-dashoffset 1s linear; }
+.timer-num{ position:absolute; inset:0; display:grid; place-items:center; font-size:1.7rem; font-weight:800; }
+.quickwrite-area{ width:100%; border:1.5px solid var(--line); border-radius:14px; padding:12px 14px; font-family:'Mulish',sans-serif; font-size:.92rem; min-height:100px; margin-top:6px; background:rgba(255,255,255,.7); color:var(--ink);}
+body.dark .quickwrite-area{ background:#232A42; }
+.qw-targets{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:14px; }
+.qw-targets button{ background:#F4F1EA; border:none; border-radius:999px; padding:8px 14px; font-size:.78rem; font-weight:700; color:var(--ink-mid); cursor:pointer; }
+body.dark .qw-targets button{ background:#232A42; color:var(--ink-mid); }
+.qw-targets button:hover{ background:var(--sky-soft); color:var(--sky); }
+
+/* ================= breathing exercise ================= */
+.breathe-wrap{ display:flex; flex-direction:column; align-items:center; padding:10px 0 4px; }
+.breathe-circle{
+  width:130px; height:130px; border-radius:50%; background:linear-gradient(135deg,var(--sky),#8E6CF0);
+  display:grid; place-items:center; color:#fff; font-weight:800; font-size:.95rem; text-align:center;
+  transition: transform 4s ease-in-out; box-shadow:0 20px 40px -14px rgba(108,125,240,.6);
+}
+.breathe-circle.inhale{ transform:scale(1.35); transition-duration:4s; }
+.breathe-circle.hold{ transform:scale(1.35); transition-duration:.3s; }
+.breathe-circle.exhale{ transform:scale(0.85); transition-duration:8s; }
+.breathe-count{ margin-top:18px; font-size:.82rem; color:var(--ink-mid); }
+.breathe-cta{ margin-top:16px; }
+
+/* ================= backup buttons ================= */
+.backup-row{ display:flex; gap:10px; margin-top:12px; }
+.backup-row .btn{ flex:1; justify-content:center; padding:10px 12px; font-size:.82rem; }
+
+/* print */
+#print-area{ display:none; }
+@media print{
+  body *{ visibility:hidden; }
+  #print-area, #print-area *{ visibility:visible; }
+  #print-area{ display:block !important; position:absolute; top:0; left:0; width:100%; padding:40px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<div class="bg-blob blob-3"></div>
+<span class="sparkle" style="top:14%;left:8%;font-size:22px;">✨</span>
+<span class="sparkle" style="top:30%;right:10%;font-size:18px;animation-delay:2s;">🌟</span>
+<span class="sparkle" style="bottom:18%;left:12%;font-size:20px;animation-delay:4s;">💫</span>
+<canvas id="confetti-canvas"></canvas>
+<div class="celebrate-toast" id="celebrateToast">
+  <div class="ci" id="celebrateIcon">🏅</div>
+  <div class="ct"><b id="celebrateTitle">Mở khoá huy hiệu!</b><span id="celebrateDesc"></span></div>
+</div>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-badge">🌅</span> Nhật Ký Biết Ơn</div>
+    <div class="top-actions">
+      <div class="streak-pill">🔥 <span id="streakTop">0</span> ngày liên tiếp</div>
+      <button class="icon-btn" id="btnBreatheOpen" title="Vòng thở thư giãn">🫧</button>
+      <button class="icon-btn" id="btnDarkToggle" title="Chế độ tối">🌙</button>
+      <button class="icon-btn" id="btnReminderOpen" title="Nhắc nhở">⏰</button>
+      <button class="icon-btn" id="btnSettingsOpen" title="Cài đặt AI">⚙️</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="spiral"></div>
+    <div class="eyebrow">🎓 THPT Huỳnh Văn Nghệ · Dự án Nhật ký biết ơn</div>
+    <h1>Mỗi ngày một dòng <span>biết ơn</span>,<br>một vòng xoáy đi lên 🌀</h1>
+    <p class="lead">Chỉ mất 3 phút mỗi ngày. Viết theo <strong>quy trình 4 bước</strong> và <strong>nguyên tắc 3K</strong> — không áp lực, không phán xét, chỉ cần kiên trì với chính mình.</p>
+    <div class="quote-card" id="quoteBox">"Lòng biết ơn không thay đổi hoàn cảnh, nó thay đổi cách ta nhìn hoàn cảnh."</div>
+  </section>
+
+  <div class="k3">
+    <div class="chip"><b>1</b> Không áp lực</div>
+    <div class="chip"><b>2</b> Không phán xét</div>
+    <div class="chip"><b>3</b> Kiên trì</div>
+  </div>
+
+  <div class="grid">
+    <!-- MAIN -->
+    <div>
+      <div class="card pad">
+        <div class="today-row">
+          <h2>✍️ Nhật ký hôm nay</h2>
+          <div class="today-date" id="todayDate"></div>
+        </div>
+
+        <div class="reminder-banner" id="notWrittenBanner" style="display:none;">
+          🌤️ Hôm nay em chưa viết nhật ký — chỉ vài dòng thôi cũng được nhé.
+          <button id="dismissBanner">✕</button>
+        </div>
+
+        <div class="mood-row">
+          <span class="ml">Hôm nay em cảm thấy thế nào?</span>
+          <div class="mood-opts" id="moodOpts">
+            <button class="mood-opt" data-mood="1" title="Buồn">😞</button>
+            <button class="mood-opt" data-mood="2" title="Hơi mệt">😕</button>
+            <button class="mood-opt" data-mood="3" title="Bình thường">😐</button>
+            <button class="mood-opt" data-mood="4" title="Vui">🙂</button>
+            <button class="mood-opt" data-mood="5" title="Rất vui">😄</button>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step s1">
+            <div class="step-head">
+              <div class="step-num">✨</div>
+              <div>
+                <div class="step-title">Bước 1 · Điều tuyệt vời</div>
+                <div class="step-sub">Hôm nay có điều gì – dù rất nhỏ – khiến em thấy vui, may mắn hay ấm lòng?</div>
+              </div>
+            </div>
+            <textarea id="s1" maxlength="600" placeholder="Ví dụ: sáng nay trời mát, mình được điểm tốt bài kiểm tra 15 phút..."></textarea>
+            <div class="step-foot"><span>Không cần viết dài, viết đúng cảm xúc của em là đủ.</span><span><span id="c1">0</span>/600</span></div>
+          </div>
+
+          <div class="step s2">
+            <div class="step-head">
+              <div class="step-num">❤️</div>
+              <div>
+                <div class="step-title">Bước 2 · Người cần cảm ơn</div>
+                <div class="step-sub">Ai đó đã giúp đỡ, lắng nghe hay khiến em mỉm cười hôm nay? Em muốn nói lời cảm ơn gì với họ?</div>
+              </div>
+            </div>
+            <textarea id="s2" maxlength="600" placeholder="Ví dụ: cảm ơn bạn A đã giảng lại bài toán khó cho mình..."></textarea>
+            <div class="step-foot"><span>Có thể là bạn bè, thầy cô, ba mẹ hoặc cả người lạ.</span><span><span id="c2">0</span>/600</span></div>
+          </div>
+
+          <div class="step s3">
+            <div class="step-head">
+              <div class="step-num">🏅</div>
+              <div>
+                <div class="step-title">Bước 3 · Niềm tự hào bản thân</div>
+                <div class="step-sub">Em đã cố gắng, vượt qua hay làm tốt điều gì hôm nay? Hãy tự khen chính mình một câu.</div>
+              </div>
+            </div>
+            <textarea id="s3" maxlength="600" placeholder="Ví dụ: mình đã kiên trì học xong dù rất mệt..."></textarea>
+            <div class="step-foot"><span>Thành tựu nhỏ cũng đáng được ghi nhận.</span><span><span id="c3">0</span>/600</span></div>
+          </div>
+
+          <div class="step s4">
+            <div class="step-head">
+              <div class="step-num">🌅</div>
+              <div>
+                <div class="step-title">Bước 4 · Lời nhắn ngày mai</div>
+                <div class="step-sub">Em muốn nhắn nhủ điều gì cho chính mình của ngày mai?</div>
+              </div>
+            </div>
+            <textarea id="s4" maxlength="600" placeholder="Ví dụ: ngày mai cố lên nhé, mọi thứ rồi sẽ ổn thôi..."></textarea>
+            <div class="step-foot"><span>Một lời động viên nhẹ nhàng cũng đủ ấm áp.</span><span><span id="c4">0</span>/600</span></div>
+          </div>
+        </div>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" id="btnSave">💾 Lưu nhật ký hôm nay</button>
+          <button class="btn btn-ai" id="btnAdvice">🤖 Nhận lời khuyên từ Cố vấn AI</button>
+          <button class="btn btn-ghost" id="btnExport">📄 Xuất PDF</button>
+          <button class="btn btn-ghost" id="btnQuickWrite">⏱️ Viết nhanh 60s</button>
+        </div>
+
+        <div class="advisor" id="advisorBox">
+          <div class="advisor-head">
+            <div class="advisor-avatar">🦉</div>
+            <div>
+              <div class="advisor-name">Cố Vấn Biết Ơn</div>
+              <div class="advisor-tag">Người bạn đồng hành cùng em mỗi ngày</div>
+            </div>
+          </div>
+          <div class="advisor-body" id="advisorText"></div>
+          <div class="advisor-disclaimer">💬 Đây là lời động viên từ AI, không thay thế cho tư vấn tâm lý chuyên nghiệp.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div>
+      <div class="card side-card pad">
+        <div class="side-title">🔥 Chuỗi kiên trì</div>
+        <div class="streak-box">
+          <div class="flame">🔥</div>
+          <div><div class="streak-num" id="streakNum">0</div><div class="streak-label">ngày liên tiếp</div></div>
+        </div>
+        <div class="heatmap" id="heatmap"></div>
+        <button class="btn btn-ghost recap-trigger" id="btnRecap" style="margin-top:16px;">🎁 Xem tổng kết tuần này</button>
+      </div>
+
+      <div class="card side-card pad">
+        <div class="side-title">📈 Biểu đồ cảm xúc</div>
+        <div class="mood-chart-wrap" id="moodChart"></div>
+      </div>
+
+      <div class="card side-card pad">
+        <div class="side-title">🏅 Huy hiệu thành tựu</div>
+        <div class="badge-grid" id="badgeGrid"></div>
+        <div class="badge-progress" id="badgeProgress">0/0 huy hiệu đã mở khoá</div>
+      </div>
+
+      <div class="card side-card pad">
+        <div class="side-title">🎧 Góc âm thanh chữa lành</div>
+        <div class="eq" id="eqBars"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="sound-grid" id="soundGrid">
+          <button class="sound-btn" data-sound="rain"><span class="emo">🌧️</span>Mưa rơi</button>
+          <button class="sound-btn" data-sound="ocean"><span class="emo">🌊</span>Sóng biển</button>
+          <button class="sound-btn" data-sound="chimes"><span class="emo">🎐</span>Chuông gió</button>
+          <button class="sound-btn" data-sound="lofi"><span class="emo">🌙</span>Lofi thư giãn</button>
+        </div>
+        <div class="vol-row">🔈<input type="range" id="volSlider" min="0" max="100" value="45">🔊</div>
+        <div class="sound-hint">Nghe khi viết nhật ký để thư giãn tâm trí hơn nhé.</div>
+      </div>
+
+      <div class="card side-card pad">
+        <div class="side-title">🌿 Nguyên tắc 3K</div>
+        <div class="k3-mini">
+          <div>🌤️ <span><b>Không áp lực</b> — không cần viết dài, viết hay, chỉ cần thật.</span></div>
+          <div>🤍 <span><b>Không phán xét</b> — mọi cảm xúc của em đều được đón nhận.</span></div>
+          <div>🌱 <span><b>Kiên trì</b> — vài dòng mỗi ngày, đều đặn là đủ.</span></div>
+        </div>
+      </div>
+
+      <div class="card side-card pad">
+        <div class="side-title">📖 Nhật ký gần đây</div>
+        <div id="historyList"><div class="empty-hint">Chưa có nhật ký nào. Hãy viết những dòng đầu tiên! ✨</div></div>
+      </div>
+
+      <div class="card side-card pad">
+        <div class="side-title">🔒 Riêng tư</div>
+        <div style="font-size:.83rem;color:var(--ink-mid);line-height:1.7;">
+          Nhật ký của em chỉ được lưu trên trình duyệt này, không gửi đi đâu khác. Nếu em cảm thấy quá tải, đừng ngần ngại chia sẻ với thầy cô, ba mẹ hoặc phòng tư vấn tâm lý học đường nhé. 💛
+        </div>
+        <div class="backup-row">
+          <button class="btn btn-ghost" id="btnBackup">⬇️ Sao lưu (.json)</button>
+          <button class="btn btn-ghost" id="btnRestore">⬆️ Khôi phục</button>
+        </div>
+        <input type="file" id="restoreInput" accept="application/json" style="display:none;">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Công cụ thực hành thuộc dự án <strong>“Thực hành Nhật ký biết ơn trong giảm thiểu căng thẳng học đường”</strong> — THPT Huỳnh Văn Nghệ.<br>
+    Được xây dựng theo Quy trình 4 bước &amp; Nguyên tắc 3K, dựa trên khuyến nghị của Robert Emmons và Thuyết Mở rộng &amp; Xây dựng (Fredrickson, 2001).
+  </footer>
+</div>
+
+<!-- SETTINGS MODAL -->
+<div class="overlay" id="settingsOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>⚙️ Cài đặt Cố vấn AI</h3><button id="btnSettingsClose">✕</button></div>
+    <p class="desc">Kết nối API Key Gemini để nhận lời khuyên cá nhân hoá sau mỗi bài viết.</p>
+
+    <label class="field-label">Gemini API Key</label>
+    <div class="key-row">
+      <input type="password" id="apiKeyInput" placeholder="Dán API Key vào đây (AIzaSy...)">
+      <button id="toggleKeyVisible" title="Hiện/ẩn">👁️</button>
+    </div>
+    <div class="status-line"><span class="dot" id="statusDot"></span><span id="statusText">Chưa kết nối API Key</span></div>
+
+    <div class="help-toggle" id="helpToggle">❓ Cách lấy API Key ở đâu?</div>
+    <div class="help-box" id="helpBox">
+      <ol>
+        <li>Truy cập <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a></li>
+        <li>Đăng nhập bằng tài khoản Google của em.</li>
+        <li>Nhấn nút <b>“Create API key”</b> (chọn hoặc tạo một dự án bất kỳ).</li>
+        <li>Sao chép mã Key vừa tạo (bắt đầu bằng <code>AIzaSy...</code>).</li>
+        <li>Dán vào ô phía trên rồi nhấn <b>Lưu</b>.</li>
+      </ol>
+      Key chỉ được lưu trong trình duyệt của em (localStorage) và gửi trực tiếp tới Google khi em nhận lời khuyên — không đi qua máy chủ nào khác.
+    </div>
+
+    <label class="field-label">Mô hình Gemini</label>
+    <select id="modelSelect">
+      <optgroup label="✨ Mới nhất — Gemini 3.x">
+        <option value="gemini-3.6-flash" selected>Gemini 3.6 Flash (khuyên dùng — nhanh, mới nhất)</option>
+        <option value="gemini-3.1-pro-preview">Gemini 3.1 Pro (suy luận sâu, chậm hơn)</option>
+        <option value="gemini-3.5-flash">Gemini 3.5 Flash</option>
+        <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (siêu nhanh, nhẹ)</option>
+        <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite</option>
+      </optgroup>
+      <optgroup label="🕰️ Dự phòng — Gemini 2.5">
+        <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash-Lite</option>
+      </optgroup>
+    </select>
+    <div class="model-note">Gemini 3.6 Flash là lựa chọn cân bằng tốt nhất giữa tốc độ và chất lượng. Nhóm model Gemini 2.5 sẽ ngừng hỗ trợ từ 16/10/2026.</div>
+
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" id="btnSaveSettings">💾 Lưu cài đặt</button>
+  </div>
+</div>
+
+<!-- REMINDER MODAL -->
+<div class="overlay" id="reminderOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>⏰ Nhắc nhở hằng ngày</h3><button id="btnReminderClose">✕</button></div>
+    <p class="desc">Nhận thông báo nhẹ nhàng để không quên viết nhật ký mỗi ngày.</p>
+    <div class="reminder-row">
+      <div><b>Bật nhắc nhở</b><div style="font-size:.78rem;color:var(--ink-mid);">Cần mở tab này và cho phép thông báo trình duyệt.</div></div>
+      <label class="switch"><input type="checkbox" id="reminderToggle"><span class="slider"></span></label>
+    </div>
+    <label class="field-label">Giờ nhắc nhở</label>
+    <input type="time" class="time-input" id="reminderTime" value="20:00">
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:18px;" id="btnSaveReminder">💾 Lưu nhắc nhở</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- AI COACH CHAT -->
+<button class="coach-fab" id="coachFab" title="Trò chuyện cùng AI Coach">🦉<span class="ping" id="coachPing"></span></button>
+<div class="chat-drawer" id="chatDrawer">
+  <div class="chat-head">
+    <div class="ca">🦉</div>
+    <div><b>AI Coach Biết Ơn</b><small>Luôn sẵn sàng lắng nghe em</small></div>
+    <button id="chatClose">✕</button>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-suggests" id="chatSuggests">
+    <button data-q="Hôm nay em thấy hơi mệt và áp lực học tập">Hôm nay em hơi áp lực 😔</button>
+    <button data-q="Em nên bắt đầu nhật ký biết ơn như thế nào?">Bắt đầu như thế nào?</button>
+    <button data-q="Cho em một lời động viên ngắn trước kỳ thi">Động viên trước kỳ thi 💪</button>
+  </div>
+  <div class="chat-foot">
+    <input type="text" id="chatInput" placeholder="Nhắn với AI Coach...">
+    <button id="chatSend">➤</button>
+  </div>
+</div>
+
+<!-- WEEKLY RECAP MODAL -->
+<div class="overlay" id="recapOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>🎁 Tổng kết tuần này</h3><button id="btnRecapClose">✕</button></div>
+    <p class="desc" id="recapRange"></p>
+    <div class="recap-grid" id="recapGrid"></div>
+    <div class="recap-line" id="recapLine"></div>
+  </div>
+</div>
+
+<!-- QUICK WRITE 60s MODAL -->
+<div class="overlay" id="qwOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>⏱️ Viết nhanh 60 giây</h3><button id="btnQwClose">✕</button></div>
+    <p class="desc">Đừng nghĩ nhiều — cứ để tay viết ra bất cứ điều gì trong đầu em. Hết giờ tự dừng, không sao cả!</p>
+    <div class="timer-ring-wrap">
+      <div class="timer-ring">
+        <svg width="130" height="130"><circle class="bgring" cx="65" cy="65" r="56"></circle><circle class="fgring" id="qwRing" cx="65" cy="65" r="56"></circle></svg>
+        <div class="timer-num" id="qwNum">60</div>
+      </div>
+      <button class="btn btn-primary" id="qwStart">▶️ Bắt đầu</button>
+    </div>
+    <textarea class="quickwrite-area" id="qwText" placeholder="Cứ viết thôi..."></textarea>
+    <div class="qw-targets">
+      <span style="font-size:.78rem;color:var(--ink-mid);align-self:center;">Chuyển vào:</span>
+      <button data-t="s1">Bước 1</button><button data-t="s2">Bước 2</button><button data-t="s3">Bước 3</button><button data-t="s4">Bước 4</button>
+    </div>
+  </div>
+</div>
+
+<!-- BREATHING MODAL -->
+<div class="overlay" id="breatheOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>🫧 Vòng thở thư giãn</h3><button id="btnBreatheClose">✕</button></div>
+    <p class="desc">Kỹ thuật thở 4-7-8: hít vào 4 giây, giữ 7 giây, thở ra 8 giây. Làm 2-3 vòng trước khi viết nhật ký nhé.</p>
+    <div class="breathe-wrap">
+      <div class="breathe-circle" id="breatheCircle">Sẵn sàng</div>
+      <div class="breathe-count" id="breatheCount">Nhấn bắt đầu để thở cùng vòng tròn</div>
+      <button class="btn btn-primary breathe-cta" id="breatheStart">▶️ Bắt đầu thở</button>
+    </div>
+  </div>
+</div>
+
+<!-- Printable area for PDF export -->
+<div id="print-area"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js"></script>
+<script>
+/* ================= State & storage ================= */
+const LS = {
+  key: 'ndbo_api_key', model: 'ndbo_model', entries: 'ndbo_entries', reminder: 'ndbo_reminder', notified: 'ndbo_last_notified',
+  aiUses: 'ndbo_ai_uses', badges: 'ndbo_badges', chat: 'ndbo_chat_history'
+};
+const STEP_LABELS = {
+  s1: '✨ Điều tuyệt vời', s2: '❤️ Người cần cảm ơn', s3: '🏅 Niềm tự hào bản thân', s4: '🌅 Lời nhắn ngày mai'
+};
+const QUOTES = [
+  '"Lòng biết ơn không thay đổi hoàn cảnh, nó thay đổi cách ta nhìn hoàn cảnh."',
+  '"Mỗi lần biết ơn là một lần trái tim được mở rộng thêm một chút."',
+  '"Hạnh phúc không phải vì có nhiều, mà vì biết trân trọng điều mình đang có."',
+  '"Một dòng nhật ký hôm nay, một sức bật tinh thần cho ngày mai."',
+  '"Không áp lực. Không phán xét. Chỉ cần kiên trì với chính mình."'
+];
+
+function pad(n){ return String(n).padStart(2,'0'); }
+function todayKey(d=new Date()){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function loadEntries(){ try{ return JSON.parse(localStorage.getItem(LS.entries)||'{}'); }catch(e){ return {}; } }
+function saveEntries(e){ localStorage.setItem(LS.entries, JSON.stringify(e)); }
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+/* ================= Init ================= */
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('quoteBox').textContent = QUOTES[Math.floor(Math.random()*QUOTES.length)];
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('vi-VN', { weekday:'long', day:'2-digit', month:'2-digit', year:'numeric' });
+
+  // load today's draft if exists
+  const entries = loadEntries();
+  const tk = todayKey();
+  if(entries[tk]){
+    ['s1','s2','s3','s4'].forEach(id => { document.getElementById(id).value = entries[tk][id] || ''; });
+    if(entries[tk].advice){ showAdvice(entries[tk].advice); }
+    if(entries[tk].mood){ selectMood(entries[tk].mood, false); }
+  } else {
+    document.getElementById('notWrittenBanner').style.display = 'flex';
+  }
+  document.getElementById('dismissBanner').addEventListener('click', ()=> document.getElementById('notWrittenBanner').style.display='none');
+
+  ['s1','s2','s3','s4'].forEach(id=>{
+    const ta = document.getElementById(id);
+    ta.addEventListener('input', ()=> { document.getElementById('c'+id.slice(1)).textContent = ta.value.length; });
+    ta.dispatchEvent(new Event('input'));
+  });
+
+  // settings load
+  const savedKey = localStorage.getItem(LS.key) || '';
+  const savedModel = localStorage.getItem(LS.model) || 'gemini-3.6-flash';
+  document.getElementById('apiKeyInput').value = savedKey;
+  document.getElementById('modelSelect').value = savedModel;
+  updateStatus(savedKey);
+
+  // reminder load
+  const rem = JSON.parse(localStorage.getItem(LS.reminder) || '{"enabled":false,"time":"20:00"}');
+  document.getElementById('reminderToggle').checked = rem.enabled;
+  document.getElementById('reminderTime').value = rem.time || '20:00';
+
+  renderStreak();
+  renderHistory();
+
+  bindEvents();
+  setInterval(checkReminder, 30000);
+
+  applyTimeOfDay();
+  spawnPetals();
+  initSounds();
+  bindSoundUI();
+  bindChatUI();
+  renderBadges();
+
+  applyDarkMode();
+  applyRotatingPrompts();
+  bindMoodUI();
+  renderMoodChart();
+  bindRecapUI();
+  bindQuickWriteUI();
+  bindBreatheUI();
+  bindBackupUI();
+});
+
+/* ================= Events ================= */
+function bindEvents(){
+  document.getElementById('btnSettingsOpen').onclick = ()=> document.getElementById('settingsOverlay').classList.add('show');
+  document.getElementById('btnSettingsClose').onclick = ()=> document.getElementById('settingsOverlay').classList.remove('show');
+  document.getElementById('btnReminderOpen').onclick = ()=> document.getElementById('reminderOverlay').classList.add('show');
+  document.getElementById('btnReminderClose').onclick = ()=> document.getElementById('reminderOverlay').classList.remove('show');
+  [document.getElementById('settingsOverlay'), document.getElementById('reminderOverlay')].forEach(ov=>{
+    ov.addEventListener('click', (e)=>{ if(e.target === ov) ov.classList.remove('show'); });
+  });
+
+  document.getElementById('toggleKeyVisible').onclick = ()=>{
+    const inp = document.getElementById('apiKeyInput');
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+  };
+  document.getElementById('helpToggle').onclick = ()=> document.getElementById('helpBox').classList.toggle('show');
+
+  document.getElementById('btnSaveSettings').onclick = ()=>{
+    const key = document.getElementById('apiKeyInput').value.trim();
+    const model = document.getElementById('modelSelect').value;
+    if(!key){ toast('⚠️ Vui lòng nhập API Key trước khi lưu.'); return; }
+    localStorage.setItem(LS.key, key);
+    localStorage.setItem(LS.model, model);
+    updateStatus(key);
+    toast('✅ Đã lưu cài đặt AI!');
+    document.getElementById('settingsOverlay').classList.remove('show');
+  };
+
+  document.getElementById('btnSaveReminder').onclick = ()=>{
+    const enabled = document.getElementById('reminderToggle').checked;
+    const time = document.getElementById('reminderTime').value || '20:00';
+    if(enabled && 'Notification' in window && Notification.permission !== 'granted'){
+      Notification.requestPermission();
+    }
+    localStorage.setItem(LS.reminder, JSON.stringify({enabled, time}));
+    toast('✅ Đã lưu cài đặt nhắc nhở!');
+    document.getElementById('reminderOverlay').classList.remove('show');
+  };
+
+  document.getElementById('btnSave').onclick = saveTodayEntry;
+  document.getElementById('btnAdvice').onclick = getAdvice;
+  document.getElementById('btnExport').onclick = exportPDF;
+}
+
+function updateStatus(key){
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+  if(key){ dot.classList.add('on'); txt.textContent = 'Đã kết nối API Key ✓'; }
+  else{ dot.classList.remove('on'); txt.textContent = 'Chưa kết nối API Key'; }
+}
+
+/* ================= Save entry ================= */
+function getFormValues(){
+  return { s1:document.getElementById('s1').value.trim(), s2:document.getElementById('s2').value.trim(),
+           s3:document.getElementById('s3').value.trim(), s4:document.getElementById('s4').value.trim() };
+}
+function saveTodayEntry(silent){
+  const v = getFormValues();
+  if(!v.s1 && !v.s2 && !v.s3 && !v.s4){ if(!silent) toast('✍️ Hãy viết ít nhất một dòng nhé.'); return null; }
+  const entries = loadEntries();
+  const tk = todayKey();
+  const moodVal = window.__selectedMood || (entries[tk] && entries[tk].mood) || null;
+  entries[tk] = Object.assign({}, entries[tk], v, { savedAt: new Date().toISOString(), mood: moodVal });
+  saveEntries(entries);
+  document.getElementById('notWrittenBanner').style.display = 'none';
+  renderStreak(); renderHistory(); renderMoodChart();
+  if(!silent) toast('💾 Đã lưu nhật ký hôm nay!');
+  checkBadges();
+  return entries[tk];
+}
+
+/* ================= Streak & heatmap ================= */
+function renderStreak(){
+  const entries = loadEntries();
+  let streak = 0;
+  let d = new Date();
+  if(!entries[todayKey(d)]) d.setDate(d.getDate()-1);
+  while(entries[todayKey(d)]){ streak++; d.setDate(d.getDate()-1); }
+  document.getElementById('streakNum').textContent = streak;
+  document.getElementById('streakTop').textContent = streak;
+
+  const hm = document.getElementById('heatmap');
+  hm.innerHTML = '';
+  const days = [];
+  for(let i=13;i>=0;i--){ const dd = new Date(); dd.setDate(dd.getDate()-i); days.push(dd); }
+  days.forEach(dd=>{
+    const div = document.createElement('div');
+    const k = todayKey(dd);
+    if(entries[k]) div.classList.add('on');
+    if(k === todayKey()) div.classList.add('today');
+    div.title = dd.toLocaleDateString('vi-VN');
+    hm.appendChild(div);
+  });
+}
+
+/* ================= History ================= */
+function renderHistory(){
+  const entries = loadEntries();
+  const keys = Object.keys(entries).sort().reverse();
+  const list = document.getElementById('historyList');
+  if(keys.length === 0){ list.innerHTML = '<div class="empty-hint">Chưa có nhật ký nào. Hãy viết những dòng đầu tiên! ✨</div>'; return; }
+  list.innerHTML = '';
+  keys.slice(0,10).forEach(k=>{
+    const e = entries[k];
+    const preview = e.s1 || e.s2 || e.s3 || e.s4 || '';
+    const dateObj = new Date(k+'T00:00:00');
+    const item = document.createElement('div');
+    item.className = 'history-item';
+    item.innerHTML = `<div class="history-date">${dateObj.toLocaleDateString('vi-VN',{weekday:'short',day:'2-digit',month:'2-digit'})}</div>
+      <div class="history-preview">${escapeHtml(preview) || '(chưa có nội dung)'}</div>
+      <div class="history-actions"><button data-k="${k}" class="btn-view">Xem</button><button data-k="${k}" class="btn-del">Xoá</button></div>`;
+    list.appendChild(item);
+  });
+  list.querySelectorAll('.btn-view').forEach(b=> b.onclick = ()=> loadIntoForm(b.dataset.k));
+  list.querySelectorAll('.btn-del').forEach(b=> b.onclick = ()=> deleteEntry(b.dataset.k));
+}
+function escapeHtml(s){ return (s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function loadIntoForm(k){
+  const entries = loadEntries();
+  const e = entries[k]; if(!e) return;
+  ['s1','s2','s3','s4'].forEach(id=>{ document.getElementById(id).value = e[id] || ''; document.getElementById(id).dispatchEvent(new Event('input')); });
+  if(e.advice) showAdvice(e.advice); else document.getElementById('advisorBox').classList.remove('show');
+  toast(k === todayKey() ? '📖 Đã tải nhật ký hôm nay' : `📖 Đang xem nhật ký ngày ${k} (chỉnh sửa sẽ không lưu tự động)`);
+}
+function deleteEntry(k){
+  const entries = loadEntries();
+  delete entries[k];
+  saveEntries(entries);
+  renderStreak(); renderHistory();
+  toast('🗑️ Đã xoá nhật ký.');
+}
+
+/* ================= AI Advisor ================= */
+const SYSTEM_PROMPT = `Bạn là "Cố Vấn Biết Ơn" – một người bạn đồng hành ấm áp, tinh tế dành cho học sinh THPT đang thực hành viết nhật ký biết ơn theo quy trình 4 bước (Điều tuyệt vời – Người cần cảm ơn – Niềm tự hào bản thân – Lời nhắn ngày mai) và nguyên tắc 3K (Không áp lực – Không phán xét – Kiên trì).
+Khi nhận nội dung nhật ký của học sinh, hãy viết một lời phản hồi ngắn (120-180 chữ), bằng tiếng Việt, giọng điệu gần gũi như một người anh/chị đáng tin cậy, không giáo điều, không phán xét.
+Hãy: (1) ghi nhận cụ thể một điều tích cực học sinh vừa chia sẻ; (2) kết nối nhẹ nhàng với sức mạnh nội tâm hoặc lòng biết ơn của các em; (3) kết thúc bằng một lời động viên nhẹ nhàng cho ngày mai.
+Tuyệt đối không dùng thuật ngữ y khoa, không đưa ra chẩn đoán hay đánh giá tâm lý, không nói bạn là AI hay mô hình ngôn ngữ, không thêm markdown hay tiêu đề, chỉ trả về đoạn văn phản hồi.`;
+
+/* Gemini "thinking" models (2.5+/3.x) count reasoning tokens against maxOutputTokens by default,
+   which can silently truncate the visible answer. This keeps the thinking budget low so the
+   actual reply has room to complete. */
+function buildThinkingConfig(model){
+  if(model.startsWith('gemini-2.5')) return { thinkingBudget: 0 };
+  return { thinkingLevel: 'low' };
+}
+
+async function getAdvice(){
+  const key = localStorage.getItem(LS.key);
+  const model = localStorage.getItem(LS.model) || 'gemini-3.6-flash';
+  if(!key){ toast('⚠️ Vui lòng nhập API Key trong Cài đặt trước nhé!'); document.getElementById('settingsOverlay').classList.add('show'); return; }
+
+  const v = getFormValues();
+  if(!v.s1 && !v.s2 && !v.s3 && !v.s4){ toast('✍️ Hãy viết ít nhất một bước trước khi xin lời khuyên nhé.'); return; }
+
+  let userPrompt = 'Đây là nhật ký biết ơn hôm nay của học sinh:\n';
+  Object.keys(STEP_LABELS).forEach(id=>{ if(v[id]) userPrompt += `\n${STEP_LABELS[id]}: ${v[id]}`; });
+
+  const btn = document.getElementById('btnAdvice');
+  const originalLabel = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = '⏳ Đang suy nghĩ...';
+  const box = document.getElementById('advisorBox');
+  box.classList.add('show');
+  document.getElementById('advisorText').innerHTML = '<span class="loading-dots"><span></span><span></span><span></span></span> Cố vấn đang đọc nhật ký của em...';
+
+  try{
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        systemInstruction: { parts:[{ text: SYSTEM_PROMPT }] },
+        contents: [{ role:'user', parts:[{ text: userPrompt }] }],
+        generationConfig: { temperature:0.9, maxOutputTokens:1200, thinkingConfig: buildThinkingConfig(model) }
+      })
+    });
+    const data = await res.json();
+    if(!res.ok){
+      const msg = (data && data.error && data.error.message) || 'Không rõ lỗi';
+      throw new Error(msg);
+    }
+    const text = data?.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join('') || '';
+    const finishReason = data?.candidates?.[0]?.finishReason;
+    if(!text){ throw new Error('Không nhận được phản hồi từ mô hình.'); }
+    if(finishReason === 'MAX_TOKENS'){
+      console.warn('Phản hồi có thể bị cắt do giới hạn token, đã tăng maxOutputTokens để hạn chế.');
+    }
+    showAdvice(text.trim());
+
+    // persist advice with today's entry
+    const entry = saveTodayEntry(true) || (loadEntries()[todayKey()]);
+    const entries = loadEntries();
+    entries[todayKey()] = Object.assign({}, entries[todayKey()], v, { advice: text.trim() });
+    saveEntries(entries);
+    renderHistory();
+    localStorage.setItem(LS.aiUses, String((parseInt(localStorage.getItem(LS.aiUses)||'0',10))+1));
+    checkBadges();
+  }catch(err){
+    let friendly = 'Có lỗi xảy ra khi kết nối tới Gemini. Vui lòng thử lại sau nhé.';
+    const m = (err.message||'').toLowerCase();
+    if(m.includes('api key') || m.includes('permission') || m.includes('invalid')) friendly = '🔑 API Key không hợp lệ hoặc chưa được cấp quyền. Em kiểm tra lại trong Cài đặt nhé.';
+    else if(m.includes('quota') || m.includes('resource_exhausted')) friendly = '⏳ Tài khoản Gemini đã hết hạn mức miễn phí trong lúc này. Em thử lại sau ít phút nhé.';
+    else if(m.includes('failed to fetch')) friendly = '📡 Không có kết nối mạng. Em kiểm tra lại internet rồi thử lại nhé.';
+    document.getElementById('advisorText').textContent = friendly;
+    toast('⚠️ Không lấy được lời khuyên. Xem chi tiết bên dưới.');
+  }finally{
+    btn.disabled = false; btn.innerHTML = originalLabel;
+  }
+}
+function showAdvice(text){
+  document.getElementById('advisorBox').classList.add('show');
+  document.getElementById('advisorText').textContent = text;
+}
+
+/* ================= Reminders ================= */
+function checkReminder(){
+  const rem = JSON.parse(localStorage.getItem(LS.reminder) || '{"enabled":false,"time":"20:00"}');
+  if(!rem.enabled) return;
+  if(!('Notification' in window) || Notification.permission !== 'granted') return;
+  const now = new Date();
+  const cur = pad(now.getHours())+':'+pad(now.getMinutes());
+  const entries = loadEntries();
+  const already = localStorage.getItem(LS.notified);
+  if(cur === rem.time && !entries[todayKey()] && already !== todayKey()){
+    new Notification('🌅 Nhật Ký Biết Ơn', { body:'Đã đến giờ ghi lại một điều biết ơn hôm nay rồi đó! Chỉ vài dòng thôi 💛' });
+    localStorage.setItem(LS.notified, todayKey());
+  }
+  if(!entries[todayKey()]) document.getElementById('notWrittenBanner').style.display = 'flex';
+}
+
+/* ================= PDF export (print-based, full Vietnamese support) ================= */
+function exportPDF(){
+  const v = getFormValues();
+  const entries = loadEntries();
+  const today = entries[todayKey()] || {};
+  const advice = today.advice || '';
+  const dateStr = new Date().toLocaleDateString('vi-VN', { weekday:'long', day:'2-digit', month:'2-digit', year:'numeric' });
+
+  const rows = Object.keys(STEP_LABELS).map(id=>{
+    const val = v[id] || today[id] || '';
+    return `<div style="margin-bottom:18px;">
+      <div style="font-weight:700;font-size:13px;color:#233156;margin-bottom:4px;">${STEP_LABELS[id]}</div>
+      <div style="font-size:13px;line-height:1.7;color:#333;white-space:pre-wrap;">${escapeHtml(val) || '(không có nội dung)'}</div>
+    </div>`;
+  }).join('');
+
+  const adviceBlock = advice ? `
+    <div style="margin-top:24px;padding:16px 18px;border:1px solid #E4DEFF;border-radius:12px;background:#F7F5FF;">
+      <div style="font-weight:700;font-size:13px;margin-bottom:6px;color:#4E3FA8;">🦉 Lời nhắn từ Cố Vấn Biết Ơn</div>
+      <div style="font-size:12.5px;line-height:1.7;color:#333;white-space:pre-wrap;">${escapeHtml(advice)}</div>
+    </div>` : '';
+
+  document.getElementById('print-area').innerHTML = `
+    <div style="font-family:'Mulish',Arial,sans-serif;max-width:680px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:26px;">
+        <div style="font-size:22px;font-weight:800;color:#233156;">🌅 Nhật Ký Biết Ơn</div>
+        <div style="font-size:12px;color:#697088;margin-top:4px;">THPT Huỳnh Văn Nghệ · Quy trình 4 bước &amp; Nguyên tắc 3K</div>
+        <div style="font-size:12px;color:#697088;text-transform:capitalize;margin-top:2px;">${dateStr}</div>
+      </div>
+      <hr style="border:none;border-top:1px solid #ECE6DA;margin-bottom:22px;">
+      ${rows}
+      ${adviceBlock}
+      <div style="margin-top:30px;font-size:10.5px;color:#AEB4C7;text-align:center;">Xuất từ công cụ Nhật Ký Biết Ơn — dự án nghiên cứu can thiệp tâm lý học đường.</div>
+    </div>`;
+
+  toast('🖨️ Đang mở hộp thoại in — chọn "Lưu dưới dạng PDF" nhé!');
+  setTimeout(()=> window.print(), 350);
+}
+
+/* ================= Time of day theming + greeting ================= */
+function applyTimeOfDay(){
+  const h = new Date().getHours();
+  let cls = 'tod-morning', greet = 'Chào buổi sáng';
+  if(h>=11 && h<14){ cls='tod-noon'; greet='Chào buổi trưa'; }
+  else if(h>=14 && h<18){ cls='tod-afternoon'; greet='Chào buổi chiều'; }
+  else if(h>=18 && h<22){ cls='tod-evening'; greet='Chào buổi tối'; }
+  else if(h>=22 || h<5){ cls='tod-night'; greet='Đêm khuya rồi'; }
+  document.body.classList.add(cls);
+  const eyebrow = document.querySelector('.eyebrow');
+  if(eyebrow) eyebrow.textContent = `🎓 ${greet}! · Dự án Nhật ký biết ơn · THPT Huỳnh Văn Nghệ`;
+}
+
+/* ================= Floating petals decoration ================= */
+function spawnPetals(){
+  const emojis = ['🌸','🍃','✨','🌿'];
+  for(let i=0;i<7;i++){
+    const p = document.createElement('span');
+    p.className = 'petal';
+    p.textContent = emojis[i % emojis.length];
+    p.style.left = (Math.random()*100)+'vw';
+    p.style.fontSize = (12+Math.random()*10)+'px';
+    p.style.animationDuration = (14+Math.random()*12)+'s';
+    p.style.animationDelay = (Math.random()*14)+'s';
+    p.style.opacity = (0.25+Math.random()*0.35).toFixed(2);
+    document.body.appendChild(p);
+  }
+}
+
+/* ================= Achievement badges ================= */
+const BADGES = [
+  { id:'first', icon:'🌱', name:'Khởi đầu', desc:'Viết nhật ký đầu tiên', check: s => s.total>=1 },
+  { id:'streak3', icon:'🔥', name:'3 ngày', desc:'Chuỗi 3 ngày liên tiếp', check: s => s.streak>=3 },
+  { id:'streak7', icon:'🌟', name:'7 ngày', desc:'Chuỗi 7 ngày liên tiếp', check: s => s.streak>=7 },
+  { id:'streak14', icon:'🏆', name:'14 ngày', desc:'Chuỗi 14 ngày — hết một chu kỳ dẻo thần kinh!', check: s => s.streak>=14 },
+  { id:'streak30', icon:'👑', name:'30 ngày', desc:'Kiên trì trọn 30 ngày', check: s => s.streak>=30 },
+  { id:'full4', icon:'🎯', name:'Trọn vẹn', desc:'Hoàn thành đủ cả 4 bước trong 1 ngày', check: s => s.fullDays>=1 },
+  { id:'full5', icon:'💎', name:'Chỉn chu', desc:'Viết đủ 4 bước trong 5 ngày', check: s => s.fullDays>=5 },
+  { id:'ten', icon:'📚', name:'10 trang', desc:'Viết đủ 10 ngày nhật ký', check: s => s.total>=10 },
+  { id:'ai1', icon:'🦉', name:'Gặp Cố vấn', desc:'Nhận lời khuyên đầu tiên từ AI', check: s => s.aiUses>=1 },
+  { id:'ai5', icon:'💬', name:'Tâm giao', desc:'Trò chuyện với AI Coach 5 lần', check: s => s.aiUses>=5 },
+  { id:'night', icon:'🌙', name:'Cú đêm', desc:'Viết nhật ký sau 22h', check: s => s.nightWrite },
+  { id:'gratitude', icon:'❤️', name:'Trái tim ấm', desc:'Viết lời cảm ơn 5 lần', check: s => s.thanksCount>=5 }
+];
+function computeStats(){
+  const entries = loadEntries();
+  const keys = Object.keys(entries);
+  let fullDays=0, thanksCount=0, nightWrite=false;
+  keys.forEach(k=>{
+    const e = entries[k];
+    if(e.s1 && e.s2 && e.s3 && e.s4) fullDays++;
+    if(e.s2) thanksCount++;
+    if(e.savedAt){ const hh = new Date(e.savedAt).getHours(); if(hh>=22 || hh<2) nightWrite = true; }
+  });
+  let streak=0, d=new Date();
+  if(!entries[todayKey(d)]) d.setDate(d.getDate()-1);
+  while(entries[todayKey(d)]){ streak++; d.setDate(d.getDate()-1); }
+  return { total:keys.length, streak, fullDays, thanksCount, nightWrite, aiUses: parseInt(localStorage.getItem(LS.aiUses)||'0',10) };
+}
+function renderBadges(){
+  const stats = computeStats();
+  const unlocked = JSON.parse(localStorage.getItem(LS.badges) || '[]');
+  const grid = document.getElementById('badgeGrid');
+  grid.innerHTML = '';
+  let count = 0;
+  BADGES.forEach(b=>{
+    const on = unlocked.includes(b.id);
+    if(on) count++;
+    const el = document.createElement('div');
+    el.className = 'badge' + (on ? ' unlocked' : '');
+    el.innerHTML = `<div class="bi">${b.icon}</div><div class="bt">${b.name}</div><div class="tip"><b>${b.name}</b><br>${b.desc}${on?'':' (chưa mở khoá)'}</div>`;
+    grid.appendChild(el);
+  });
+  document.getElementById('badgeProgress').textContent = `${count}/${BADGES.length} huy hiệu đã mở khoá`;
+}
+function checkBadges(){
+  const stats = computeStats();
+  const unlocked = JSON.parse(localStorage.getItem(LS.badges) || '[]');
+  let newlyUnlocked = null;
+  BADGES.forEach(b=>{
+    if(!unlocked.includes(b.id) && b.check(stats)){ unlocked.push(b.id); newlyUnlocked = b; }
+  });
+  localStorage.setItem(LS.badges, JSON.stringify(unlocked));
+  renderBadges();
+  if(newlyUnlocked){ celebrateBadge(newlyUnlocked); launchConfetti(); }
+}
+function celebrateBadge(b){
+  document.getElementById('celebrateIcon').textContent = b.icon;
+  document.getElementById('celebrateTitle').textContent = `Mở khoá huy hiệu "${b.name}"!`;
+  document.getElementById('celebrateDesc').textContent = b.desc;
+  const el = document.getElementById('celebrateToast');
+  el.classList.add('show');
+  setTimeout(()=> el.classList.remove('show'), 3600);
+}
+
+/* ================= Confetti ================= */
+function launchConfetti(){
+  const canvas = document.getElementById('confetti-canvas');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const ctx = canvas.getContext('2d');
+  const colors = ['#5B8DEF','#EF5F86','#F2A93B','#FF7E54','#8E6CF0'];
+  const pieces = Array.from({length:90}, () => ({
+    x: Math.random()*canvas.width, y: -20-Math.random()*200, r: 4+Math.random()*5,
+    c: colors[Math.floor(Math.random()*colors.length)], vy: 2+Math.random()*3, vx: -1.5+Math.random()*3,
+    rot: Math.random()*360, vr: -6+Math.random()*12
+  }));
+  let frame = 0;
+  function draw(){
+    frame++;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot*Math.PI/180);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*1.6);
+      ctx.restore();
+    });
+    if(frame < 130) requestAnimationFrame(draw); else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  draw();
+}
+
+/* ================= Healing sound corner (Web Audio API, fully synthesized — no external files) ================= */
+let audioCtx = null, currentSound = null, soundNodes = [], masterGain = null;
+function ensureAudio(){
+  if(!audioCtx){
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = document.getElementById('volSlider').value / 100;
+    masterGain.connect(audioCtx.destination);
+  }
+  if(audioCtx.state === 'suspended') audioCtx.resume();
+}
+function makeNoiseBuffer(){
+  const bufferSize = 2*audioCtx.sampleRate;
+  const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const data = buffer.getChannelData(0);
+  for(let i=0;i<bufferSize;i++) data[i] = Math.random()*2-1;
+  return buffer;
+}
+function stopSound(){
+  soundNodes.forEach(n=>{ try{ n.stop ? n.stop() : null; n.disconnect && n.disconnect(); }catch(e){} });
+  soundNodes = [];
+  currentSound = null;
+  document.querySelectorAll('.sound-btn').forEach(b=> b.classList.remove('active'));
+  document.getElementById('eqBars').classList.remove('playing');
+}
+function playRain(){
+  const src = audioCtx.createBufferSource(); src.buffer = makeNoiseBuffer(); src.loop = true;
+  const filter = audioCtx.createBiquadFilter(); filter.type='bandpass'; filter.frequency.value = 1800; filter.Q.value=0.6;
+  const gain = audioCtx.createGain(); gain.gain.value = 0.5;
+  src.connect(filter); filter.connect(gain); gain.connect(masterGain); src.start();
+  soundNodes = [src, filter, gain];
+}
+function playOcean(){
+  const src = audioCtx.createBufferSource(); src.buffer = makeNoiseBuffer(); src.loop = true;
+  const filter = audioCtx.createBiquadFilter(); filter.type='lowpass'; filter.frequency.value = 500;
+  const lfo = audioCtx.createOscillator(); lfo.frequency.value = 0.12;
+  const lfoGain = audioCtx.createGain(); lfoGain.gain.value = 260;
+  lfo.connect(lfoGain); lfoGain.connect(filter.frequency);
+  const gain = audioCtx.createGain(); gain.gain.value = 0.55;
+  src.connect(filter); filter.connect(gain); gain.connect(masterGain);
+  src.start(); lfo.start();
+  soundNodes = [src, filter, lfo, lfoGain, gain];
+}
+function playChimes(){
+  const notes = [523.25,587.33,659.25,783.99,880.0,1046.5]; // pentatonic-ish
+  soundNodes = [];
+  function pluck(){
+    if(currentSound !== 'chimes') return;
+    const freq = notes[Math.floor(Math.random()*notes.length)];
+    const osc = audioCtx.createOscillator(); osc.type='sine'; osc.frequency.value = freq;
+    const gain = audioCtx.createGain(); gain.gain.value = 0;
+    osc.connect(gain); gain.connect(masterGain);
+    const t = audioCtx.currentTime;
+    gain.gain.linearRampToValueAtTime(0.28, t+0.03);
+    gain.gain.exponentialRampToValueAtTime(0.001, t+2.4);
+    osc.start(t); osc.stop(t+2.5);
+    setTimeout(pluck, 900 + Math.random()*1800);
+  }
+  pluck();
+}
+function playLofi(){
+  const freqs = [220, 277.18, 329.63]; // soft triad pad
+  const gain = audioCtx.createGain(); gain.gain.value = 0.12; gain.connect(masterGain);
+  soundNodes = [gain];
+  freqs.forEach((f,i)=>{
+    const osc = audioCtx.createOscillator(); osc.type='sine'; osc.frequency.value = f;
+    const lfo = audioCtx.createOscillator(); lfo.frequency.value = 0.08+i*0.02;
+    const lfoGain = audioCtx.createGain(); lfoGain.gain.value = 2;
+    lfo.connect(lfoGain); lfoGain.connect(osc.frequency);
+    osc.connect(gain); osc.start(); lfo.start();
+    soundNodes.push(osc, lfo, lfoGain);
+  });
+}
+function initSounds(){
+  document.getElementById('volSlider').addEventListener('input', (e)=>{
+    if(masterGain) masterGain.gain.value = e.target.value/100;
+  });
+}
+function bindSoundUI(){
+  document.querySelectorAll('.sound-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const key = btn.dataset.sound;
+      ensureAudio();
+      if(currentSound === key){ stopSound(); return; }
+      stopSound();
+      currentSound = key;
+      btn.classList.add('active');
+      document.getElementById('eqBars').classList.add('playing');
+      if(key==='rain') playRain();
+      else if(key==='ocean') playOcean();
+      else if(key==='chimes') playChimes();
+      else if(key==='lofi') playLofi();
+    });
+  });
+}
+
+/* ================= AI Coach — interactive chat ================= */
+const COACH_SYSTEM_PROMPT = `Bạn là "AI Coach Biết Ơn" – huấn luyện viên tinh thần thân thiện, ấm áp dành cho học sinh THPT đang thực hành nhật ký biết ơn theo quy trình 4 bước và nguyên tắc 3K (Không áp lực – Không phán xét – Kiên trì).
+Trò chuyện tự nhiên, ngắn gọn (dưới 100 chữ mỗi lượt trừ khi được yêu cầu dài hơn), xưng "mình"/"Coach" gọi học sinh là "em", giọng điệu gần gũi như một người anh/chị đáng tin cậy.
+Có thể: gợi ý cách bắt đầu viết nhật ký, giúp học sinh nhìn lại một ngày theo hướng tích cực, đưa lời động viên trước áp lực học tập/thi cử, giải thích ngắn gọn vì sao biết ơn giúp giảm stress (dựa trên Thuyết Mở rộng & Xây dựng, cơ chế thần kinh học) khi được hỏi.
+Tuyệt đối không chẩn đoán tâm lý, không dùng thuật ngữ y khoa, không nói mình là AI/mô hình ngôn ngữ. Nếu học sinh có dấu hiệu quá tải nghiêm trọng, nhẹ nhàng khuyên các em chia sẻ với thầy cô, ba mẹ hoặc phòng tư vấn tâm lý học đường.`;
+
+let chatHistory = [];
+function bindChatUI(){
+  chatHistory = JSON.parse(sessionStorage.getItem(LS.chat) || '[]');
+  renderChat();
+  document.getElementById('coachFab').addEventListener('click', ()=>{
+    document.getElementById('chatDrawer').classList.add('show');
+    document.getElementById('coachPing').classList.remove('show');
+    if(chatHistory.length===0){
+      pushMsg('bot', 'Chào em! Mình là AI Coach Biết Ơn 🦉 Hôm nay em muốn chia sẻ điều gì, hay cần một lời động viên nào không?');
+    }
+  });
+  document.getElementById('chatClose').addEventListener('click', ()=> document.getElementById('chatDrawer').classList.remove('show'));
+  document.getElementById('chatSend').addEventListener('click', sendChat);
+  document.getElementById('chatInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') sendChat(); });
+  document.querySelectorAll('#chatSuggests button').forEach(b=>{
+    b.addEventListener('click', ()=>{ document.getElementById('chatInput').value = b.dataset.q; sendChat(); });
+  });
+  setTimeout(()=>{ if(chatHistory.length===0) document.getElementById('coachPing').classList.add('show'); }, 4000);
+}
+function pushMsg(role, text){
+  chatHistory.push({role, text});
+  sessionStorage.setItem(LS.chat, JSON.stringify(chatHistory));
+  renderChat();
+}
+function renderChat(){
+  const body = document.getElementById('chatBody');
+  body.innerHTML = '';
+  chatHistory.forEach(m=>{
+    const div = document.createElement('div');
+    div.className = 'msg ' + (m.role==='user' ? 'user' : 'bot');
+    div.textContent = m.text;
+    body.appendChild(div);
+  });
+  body.scrollTop = body.scrollHeight;
+}
+async function sendChat(){
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if(!text) return;
+  const key = localStorage.getItem(LS.key);
+  const model = localStorage.getItem(LS.model) || 'gemini-3.6-flash';
+  if(!key){ toast('⚠️ Vui lòng nhập API Key trong Cài đặt trước nhé!'); document.getElementById('settingsOverlay').classList.add('show'); return; }
+  input.value = '';
+  pushMsg('user', text);
+  const sendBtn = document.getElementById('chatSend');
+  sendBtn.disabled = true;
+  pushMsg('bot', '...');
+  try{
+    const contents = chatHistory.filter(m=>m.text!=='...').map(m=> ({ role: m.role==='user' ? 'user' : 'model', parts:[{text:m.text}] }));
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(key)}`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        systemInstruction: { parts:[{ text: COACH_SYSTEM_PROMPT }] },
+        contents,
+        generationConfig:{ temperature:0.95, maxOutputTokens:800, thinkingConfig: buildThinkingConfig(model) }
+      })
+    });
+    const data = await res.json();
+    chatHistory.pop(); // remove '...' placeholder
+    if(!res.ok){ throw new Error((data && data.error && data.error.message) || 'lỗi'); }
+    const reply = data?.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join('') || 'Mình chưa nghĩ ra câu trả lời, em thử hỏi lại nhé.';
+    pushMsg('bot', reply.trim());
+    localStorage.setItem(LS.aiUses, String((parseInt(localStorage.getItem(LS.aiUses)||'0',10))+1));
+    checkBadges();
+  }catch(err){
+    chatHistory.pop();
+    const m = (err.message||'').toLowerCase();
+    let friendly = 'Có lỗi kết nối tới Gemini, em thử lại nhé.';
+    if(m.includes('api key') || m.includes('permission') || m.includes('invalid')) friendly = '🔑 API Key chưa đúng, em kiểm tra lại trong Cài đặt nhé.';
+    else if(m.includes('quota')) friendly = '⏳ Hết hạn mức miễn phí tạm thời, em thử lại sau ít phút nhé.';
+    pushMsg('bot', friendly);
+  }finally{
+    sendBtn.disabled = false;
+  }
+}
+
+/* ================= DARK MODE ================= */
+function applyDarkMode(){
+  const on = localStorage.getItem('ndbo_dark') === '1';
+  if(on) document.body.classList.add('dark');
+  document.getElementById('btnDarkToggle').addEventListener('click', ()=>{
+    document.body.classList.toggle('dark');
+    localStorage.setItem('ndbo_dark', document.body.classList.contains('dark') ? '1' : '0');
+  });
+}
+
+/* ================= Rotating prompts (reduce repetition over 12 weeks) ================= */
+const PROMPT_BANK = {
+  s1: [
+    'Hôm nay, điều gì – dù rất nhỏ – khiến em thấy vui, may mắn hay ấm lòng?',
+    'Có khoảnh khắc nào hôm nay khiến em mỉm cười một mình không?',
+    'Điều gì hôm nay diễn ra tốt hơn em nghĩ?',
+    'Em vừa trải qua điều gì khiến mình thấy nhẹ nhõm hoặc dễ chịu?',
+    'Nếu chọn một điều đẹp nhất của hôm nay, đó sẽ là gì?'
+  ],
+  s2: [
+    'Có ai đó hôm nay đã giúp đỡ, lắng nghe hay khiến em mỉm cười? Em muốn cảm ơn họ điều gì?',
+    'Ai là người khiến ngày hôm nay của em bớt khó khăn hơn?',
+    'Em muốn gửi lời cảm ơn đến ai, dù họ có thể không biết điều đó?',
+    'Có hành động nhỏ nào của ai đó hôm nay khiến em thấy được quan tâm?',
+    'Nếu viết một dòng nhắn cảm ơn ngay bây giờ, em sẽ gửi cho ai?'
+  ],
+  s3: [
+    'Em đã cố gắng, vượt qua hay làm tốt điều gì hôm nay? Hãy tự khen chính mình một câu.',
+    'Có việc gì hôm nay em làm mà trước đây từng thấy khó?',
+    'Em đã kiên trì với điều gì hôm nay, dù chỉ là một việc nhỏ?',
+    'Điều gì hôm nay cho thấy em đang trưởng thành hơn?',
+    'Em tự hào nhất về quyết định hay hành động nào của mình hôm nay?'
+  ],
+  s4: [
+    'Em muốn nhắn nhủ điều gì cho chính mình của ngày mai?',
+    'Nếu được nói một câu động viên với bản thân vào sáng mai, em sẽ nói gì?',
+    'Ngày mai em muốn thử điều gì mới, dù rất nhỏ?',
+    'Em muốn nhắc bản thân điều gì để ngày mai nhẹ nhàng hơn?',
+    'Một lời chúc nhỏ em muốn dành cho chính mình của ngày mai là gì?'
+  ]
+};
+function dayOfYear(){ const d=new Date(); const start=new Date(d.getFullYear(),0,0); return Math.floor((d-start)/86400000); }
+function applyRotatingPrompts(){
+  const doy = dayOfYear();
+  Object.keys(PROMPT_BANK).forEach((id, idx)=>{
+    const bank = PROMPT_BANK[id];
+    const text = bank[(doy + idx) % bank.length];
+    const sub = document.querySelector('.step.'+ (id==='s1'?'s1':id==='s2'?'s2':id==='s3'?'s3':'s4') +' .step-sub');
+    if(sub) sub.textContent = text;
+  });
+}
+
+/* ================= Mood picker ================= */
+function selectMood(val, persist){
+  window.__selectedMood = val;
+  document.querySelectorAll('.mood-opt').forEach(b=> b.classList.toggle('sel', b.dataset.mood === String(val)));
+  if(persist){
+    const entries = loadEntries();
+    const tk = todayKey();
+    entries[tk] = Object.assign({}, entries[tk], { mood: val });
+    saveEntries(entries);
+    renderMoodChart();
+  }
+}
+function bindMoodUI(){
+  document.querySelectorAll('.mood-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=> selectMood(btn.dataset.mood, true));
+  });
+}
+
+/* ================= Mood chart (SVG line, last 14 days) ================= */
+function renderMoodChart(){
+  const entries = loadEntries();
+  const days = [];
+  for(let i=13;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push({k:todayKey(d), d}); }
+  const pts = days.map(x=> entries[x.k] && entries[x.k].mood ? Number(entries[x.k].mood) : null);
+  const wrap = document.getElementById('moodChart');
+  if(pts.every(p=>p===null)){ wrap.innerHTML = '<div class="chart-empty">Chưa có dữ liệu cảm xúc. Hãy chọn cảm xúc hôm nay nhé! 🙂</div>'; return; }
+  const W = 280, H = 100, pad = 10;
+  const stepX = (W - pad*2) / (pts.length - 1);
+  const yFor = v => H - pad - ((v-1)/4)*(H-pad*2);
+  let path = ''; let dots = '';
+  pts.forEach((v,i)=>{
+    if(v===null) return;
+    const x = pad + i*stepX, y = yFor(v);
+    path += (path==='' ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1) + ' ';
+    dots += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5" fill="#FF7E54"></circle>`;
+  });
+  wrap.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <path d="${path}" fill="none" stroke="#EF5F86" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    ${dots}
+  </svg>`;
+}
+
+/* ================= Weekly recap ================= */
+function bindRecapUI(){
+  document.getElementById('btnRecap').addEventListener('click', openRecap);
+  document.getElementById('btnRecapClose').addEventListener('click', ()=> document.getElementById('recapOverlay').classList.remove('show'));
+  document.getElementById('recapOverlay').addEventListener('click', (e)=>{ if(e.target.id==='recapOverlay') e.target.classList.remove('show'); });
+}
+function openRecap(){
+  const entries = loadEntries();
+  const days = [];
+  for(let i=6;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push(todayKey(d)); }
+  const weekEntries = days.map(k=>entries[k]).filter(Boolean);
+  const writtenDays = weekEntries.length;
+  const moods = weekEntries.map(e=>e.mood).filter(Boolean).map(Number);
+  const avgMood = moods.length ? (moods.reduce((a,b)=>a+b,0)/moods.length).toFixed(1) : '—';
+  const thanksList = weekEntries.map(e=>e.s2).filter(Boolean);
+  const stats = computeStats();
+
+  document.getElementById('recapRange').textContent = `Từ ${new Date(days[0]+'T00:00:00').toLocaleDateString('vi-VN')} đến ${new Date(days[6]+'T00:00:00').toLocaleDateString('vi-VN')}`;
+  document.getElementById('recapGrid').innerHTML = `
+    <div class="recap-stat"><div class="rn">${writtenDays}/7</div><div class="rl">ngày đã viết</div></div>
+    <div class="recap-stat"><div class="rn">${stats.streak}</div><div class="rl">chuỗi hiện tại</div></div>
+    <div class="recap-stat"><div class="rn">${avgMood}</div><div class="rl">cảm xúc trung bình /5</div></div>
+    <div class="recap-stat"><div class="rn">${thanksList.length}</div><div class="rl">lời cảm ơn đã viết</div></div>`;
+
+  let line = writtenDays===0
+    ? 'Tuần này em chưa viết nhật ký nào — không sao cả, bắt đầu lại từ hôm nay cũng rất tuyệt! 🌱'
+    : writtenDays>=6
+      ? 'Một tuần thật kiên trì! Em đã dành thời gian nhìn lại những điều tốt đẹp gần như mỗi ngày. 🌟'
+      : 'Em đã cố gắng dành thời gian cho bản thân trong tuần này — cứ tiếp tục với nhịp độ phù hợp với em nhé. 💛';
+  document.getElementById('recapLine').textContent = line;
+  document.getElementById('recapOverlay').classList.add('show');
+}
+
+/* ================= Quick write 60s ================= */
+function bindQuickWriteUI(){
+  document.getElementById('btnQuickWrite').addEventListener('click', ()=>{
+    document.getElementById('qwOverlay').classList.add('show');
+    resetQwRing();
+  });
+  document.getElementById('btnQwClose').addEventListener('click', ()=>{ document.getElementById('qwOverlay').classList.remove('show'); stopQwTimer(); });
+  document.getElementById('qwOverlay').addEventListener('click', (e)=>{ if(e.target.id==='qwOverlay'){ e.target.classList.remove('show'); stopQwTimer(); } });
+  document.getElementById('qwStart').addEventListener('click', startQwTimer);
+  document.querySelectorAll('.qw-targets button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const text = document.getElementById('qwText').value.trim();
+      if(!text){ toast('✍️ Chưa có nội dung để chuyển.'); return; }
+      const target = document.getElementById(b.dataset.t);
+      target.value = target.value ? target.value + '\n' + text : text;
+      target.dispatchEvent(new Event('input'));
+      toast('✅ Đã chuyển vào ' + STEP_LABELS[b.dataset.t]);
+      document.getElementById('qwOverlay').classList.remove('show');
+      stopQwTimer();
+    });
+  });
+}
+const QW_TOTAL = 60;
+let qwTimer = null, qwRemain = QW_TOTAL;
+const QW_CIRC = 2*Math.PI*56;
+function resetQwRing(){
+  qwRemain = QW_TOTAL;
+  const ring = document.getElementById('qwRing');
+  ring.style.strokeDasharray = QW_CIRC;
+  ring.style.strokeDashoffset = 0;
+  document.getElementById('qwNum').textContent = QW_TOTAL;
+  document.getElementById('qwStart').style.display = 'inline-flex';
+}
+function startQwTimer(){
+  document.getElementById('qwStart').style.display = 'none';
+  document.getElementById('qwText').focus();
+  clearInterval(qwTimer);
+  qwTimer = setInterval(()=>{
+    qwRemain--;
+    document.getElementById('qwNum').textContent = qwRemain;
+    const ring = document.getElementById('qwRing');
+    ring.style.strokeDashoffset = QW_CIRC * (1 - qwRemain/QW_TOTAL);
+    if(qwRemain<=0){ stopQwTimer(); toast('⏰ Hết giờ! Em có thể chuyển nội dung vào một bước bên dưới.'); }
+  }, 1000);
+}
+function stopQwTimer(){ clearInterval(qwTimer); qwTimer = null; }
+
+/* ================= Breathing exercise (4-7-8) ================= */
+let breatheTimeouts = [], breatheCycles = 0, breatheRunning = false;
+function bindBreatheUI(){
+  document.getElementById('btnBreatheOpen').addEventListener('click', ()=> document.getElementById('breatheOverlay').classList.add('show'));
+  document.getElementById('btnBreatheClose').addEventListener('click', ()=>{ document.getElementById('breatheOverlay').classList.remove('show'); stopBreathing(); });
+  document.getElementById('breatheOverlay').addEventListener('click', (e)=>{ if(e.target.id==='breatheOverlay'){ e.target.classList.remove('show'); stopBreathing(); } });
+  document.getElementById('breatheStart').addEventListener('click', ()=>{
+    if(breatheRunning){ stopBreathing(); } else { breatheCycles = 0; runBreatheCycle(); }
+  });
+}
+function runBreatheCycle(){
+  breatheRunning = true;
+  const circle = document.getElementById('breatheCircle');
+  const countEl = document.getElementById('breatheCount');
+  document.getElementById('breatheStart').textContent = '⏹️ Dừng lại';
+  function phase(cls, label, ms, next){
+    circle.className = 'breathe-circle ' + cls;
+    circle.textContent = label;
+    const t = setTimeout(()=>{ if(breatheRunning) next(); }, ms);
+    breatheTimeouts.push(t);
+  }
+  function cycle(){
+    if(!breatheRunning) return;
+    breatheCycles++;
+    countEl.textContent = `Vòng thứ ${breatheCycles}`;
+    phase('inhale','Hít vào...', 4000, ()=>{
+      phase('hold','Giữ hơi...', 7000, ()=>{
+        phase('exhale','Thở ra...', 8000, ()=> cycle());
+      });
+    });
+  }
+  cycle();
+}
+function stopBreathing(){
+  breatheRunning = false;
+  breatheTimeouts.forEach(clearTimeout); breatheTimeouts = [];
+  const circle = document.getElementById('breatheCircle');
+  circle.className = 'breathe-circle';
+  circle.textContent = 'Sẵn sàng';
+  document.getElementById('breatheCount').textContent = 'Nhấn bắt đầu để thở cùng vòng tròn';
+  document.getElementById('breatheStart').textContent = '▶️ Bắt đầu thở';
+}
+
+/* ================= Backup & restore ================= */
+function bindBackupUI(){
+  document.getElementById('btnBackup').addEventListener('click', ()=>{
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      entries: loadEntries(),
+      badges: JSON.parse(localStorage.getItem(LS.badges) || '[]'),
+      aiUses: localStorage.getItem(LS.aiUses) || '0'
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `nhat-ky-biet-on-sao-luu-${todayKey()}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+    toast('⬇️ Đã tải file sao lưu!');
+  });
+  document.getElementById('btnRestore').addEventListener('click', ()=> document.getElementById('restoreInput').click());
+  document.getElementById('restoreInput').addEventListener('change', (e)=>{
+    const file = e.target.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try{
+        const data = JSON.parse(reader.result);
+        if(!data.entries) throw new Error('invalid');
+        const ok = confirm('Khôi phục sẽ gộp dữ liệu từ file vào nhật ký hiện tại trên trình duyệt này. Tiếp tục?');
+        if(!ok) return;
+        const current = loadEntries();
+        const merged = Object.assign({}, current, data.entries);
+        saveEntries(merged);
+        if(data.badges) localStorage.setItem(LS.badges, JSON.stringify(data.badges));
+        if(data.aiUses) localStorage.setItem(LS.aiUses, String(data.aiUses));
+        renderStreak(); renderHistory(); renderMoodChart(); renderBadges();
+        toast('✅ Đã khôi phục dữ liệu thành công!');
+      }catch(err){ toast('⚠️ File sao lưu không hợp lệ.'); }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+}
+</script>
+</body>
+</html>
